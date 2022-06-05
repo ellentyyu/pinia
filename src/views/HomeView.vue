@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="../assets/logo.png"><br>
+    {{ product }}
+    {{ getPrice }}
+    <button type="button" @click="increment">加一</button>
   </div>
+
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+// Options API
+import { mapState, mapActions } from 'pinia'
+import { useShopStore } from '@/stores/product.js'
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+  computed: {
+    ...mapState(useShopStore, ['product', 'getPrice'])
+  },
+  methods: {
+    ...mapActions(useShopStore, ['increment'])
+  },
+  created () {
+    this.increment()
   }
 }
 </script>
