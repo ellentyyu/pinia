@@ -2,8 +2,8 @@ import { defineStore } from 'pinia'
 
 export const useShopStore = defineStore('product store', {
   state: () => ({
-    product: '培根',
-    price: 100
+    product: '雞腿',
+    price: 88
   }),
   getters: {
     getPrice: (state) => `${state.product} ${state.price} 元`,
