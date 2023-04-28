@@ -28,8 +28,8 @@ export default {
     // 3
     function updateShop () {
       shop.$patch({
-        product: '雞蛋',
-        price: 999
+        product: '牛奶',
+        price: 100
       })
     }
     // 4
